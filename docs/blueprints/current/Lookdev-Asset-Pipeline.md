@@ -332,7 +332,7 @@ Preferred sources:
 | LLM response stream | `activity=responding`, speech envelope |
 | Codex tool call start/end | `toolActivity`, `load`, `activity=working` |
 | file edit/test/build events | `toolActivity`, `progress`, `confidence` |
-| Obsidian search/write | `memoryActivity`, reflective route |
+| Obsidian search/write | `memoryActivity`, `route=eden` metadata |
 | calendar/Gmail/Drive requests | `toolActivity`, route depending on task |
 | approval queue | `activity=approval`, `urgency` |
 | errors/blocked permissions | `activity=blocked`, `errorPressure` |
@@ -372,10 +372,10 @@ Example:
 
 ```json
 {
-  "id": "eden-Overlay Pet-v1",
+  "id": "eden-overlay-pet-v1",
   "family": "black-core-organic-sphere",
-  "baseLoop": "assets/overlay-pet/exports/base-loops/idle-reflective.webm",
-  "fallbackStill": "assets/overlay-pet/exports/stills/idle-reflective.png",
+  "baseLoop": "assets/overlay-pet/exports/base-loops/idle-base.webm",
+  "fallbackStill": "assets/overlay-pet/exports/stills/idle-base.png",
   "blendMode": "screen",
   "states": ["idle", "listening", "thinking", "responding", "working", "approval", "blocked", "done"],
   "signals": ["arousal", "focus", "load", "voiceEnergy", "toolActivity", "memoryActivity", "errorPressure"]

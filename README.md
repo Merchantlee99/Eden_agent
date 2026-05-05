@@ -91,6 +91,7 @@ Current design set:
 - [Swift Native Codex Pet Blueprint](docs/blueprints/current/Swift_Native_Codex_Pet_Blueprint.md)
 - [Eden/Jarvis Final Blueprint](docs/blueprints/current/Eden_Jarvis_Final_Blueprint.md)
 - [Postfix Review 2026-05-05](docs/blueprints/current/Eden_Jarvis_Postfix_Review_2026-05-05.md)
+- [Overlay Pet Design Readiness Review 2026-05-06](docs/blueprints/current/Overlay_Pet_Design_Readiness_Review_2026-05-06.md)
 - [Cognitive Architecture v2](docs/blueprints/current/Eden_Jarvis_Cognitive_Architecture_v2.md)
 - [Product Architecture](docs/blueprints/current/Eden_Jarvis_Product_Architecture.md)
 - [Motion Bible](docs/blueprints/current/Motion-Bible.md)

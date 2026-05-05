@@ -168,10 +168,10 @@ The final runtime must use continuous signals:
 
 ```ts
 type PetSignal = {
-  route: "reflective" | "execution" | "hybrid";
+  route: "eden" | "jarvis" | "hybrid";
   routeScores?: {
-    reflective: number;
-    execution: number;
+    eden: number;
+    jarvis: number;
     hybrid: number;
   };
   activity:
@@ -195,7 +195,7 @@ type PetSignal = {
 };
 ```
 
-`route` is metadata. It is not a visual identity selector.
+`route` is metadata. It is not a visual identity selector. The visible Overlay Pet remains one appearance across Eden, Jarvis, and Hybrid routing.
 
 Discrete state chooses the motion family. Continuous signals shape the body.
 
@@ -344,15 +344,22 @@ Failure mode:
 
 - if too red or violent, every minor blocker feels like a crash
 
-## Route Color Families
+## Internal Route Semantics
 
-Route is not a visible mode label. It is a color and motion character.
+Route is not a visible mode label, skin, badge, or color family. It exists for routing, audit, task wording, and detail/debug panels.
 
-| Route | Meaning | Visual Character |
+| Route | Meaning | Allowed User-Visible Treatment |
 | --- | --- | --- |
-| Reflective | Eden, memory, schedule, thinking, Obsidian | cyan/violet, soft, stable, slow |
-| Execution | Jarvis, coding, local files, GitHub, tools | rose/blue, sharper, driven, higher contrast |
-| Hybrid | planning-to-execution, strategy, synthesis | magenta/electric, transitional, high-energy bridge |
+| Eden | memory, schedule, thinking, Obsidian | same Pet identity; reflective wording if needed |
+| Jarvis | coding, local files, GitHub, tools | same Pet identity; execution wording if needed |
+| Hybrid | planning-to-execution, strategy, synthesis | same Pet identity; synthesis wording if needed |
+
+Forbidden:
+
+- route-specific Pet bodies
+- route-specific skins
+- route color families as primary identity
+- visible Eden/Jarvis/Hybrid labels on the Pet
 
 ## Layer Response Matrix
 
