@@ -125,10 +125,10 @@ The same Pet changes state through animation and expression.
 | idle | slow breathing, calm glow, neutral eyes |
 | listening | eyes attentive, slight forward posture, soft pulse |
 | thinking | gaze narrows, glow gathers inward, micro-orbit or halo drift |
-| responding | face brightens, mouth/eye rhythm or light waveform |
+| speaking/texting | face brightens, eye rhythm or light waveform, communication cadence |
 | working | stronger internal light, subtle body compression, tool-like cadence |
 | approval | amber edge attention, still calm, no modal-looking badge |
-| blocked | reduced motion, red-orange tension, visible constraint without alarmism |
+| blocked/error | reduced motion, red-orange tension, visible constraint without alarmism |
 | done | short release glow, relaxed return to idle |
 
 ## Scale Rules
@@ -167,8 +167,15 @@ Then select 1 candidate and generate:
 - front view
 - 3/4 view
 - expression sheet
-- idle/listening/thinking/working/approval/blocked/done stills
+- idle/listening/thinking/speaking-texting/working/approval/blocked-error/done stills
 - transparent-background export candidates
+
+After state stills are approved:
+
+- use each approved state still as the source image for image-to-video generation
+- generate short state loops
+- reject loops that drift from the locked Pet identity
+- export approved loops for the Swift overlay runtime
 
 ## Rejection Criteria
 

@@ -37,6 +37,8 @@ Reference Lock
 -> Motion Bible
 -> Lookdev Experiments
 -> Hero Direction Selection
+-> State Still Generation
+-> Image-to-Video Loop Generation
 -> Asset Export
 -> Runtime Integration
 -> Signal Wiring
@@ -197,6 +199,40 @@ Use when:
 
 - the visual direction is already locked
 - runtime reactivity matters more than prerender perfection
+
+### Track E: GPT Image + Image-to-Video Lookdev
+
+Best for:
+
+- fast Dribbble-grade visual exploration
+- locking a high-quality Pet identity before implementation
+- generating state-specific stills
+- producing organic motion loops without hand-tuning every frame
+
+Output candidates:
+
+- locked Pet identity still
+- state stills for idle, listening, thinking, speaking/texting, working, approval, blocked/error, and done
+- short image-to-video loops per state
+- transition reference clips for crossfade and afterglow behavior
+
+Risks:
+
+- character identity can drift between states
+- generated loops may not be seamless
+- alpha/transparent background handling may require chroma-key or post-processing
+- direct user-state reactivity is not in the generated video; runtime still needs signal-driven loop switching
+
+Use when:
+
+- the priority is high visual quality and fast motion production
+
+Rules:
+
+- never generate the state video from text alone
+- first generate or approve the state still
+- use the approved still as the source image for image-to-video
+- reject any loop that changes the Pet's silhouette, material, face language, or scale
 
 ## Phase 3: Hero Direction Selection
 
@@ -377,7 +413,7 @@ Example:
   "baseLoop": "assets/overlay-pet/exports/base-loops/idle-base.webm",
   "fallbackStill": "assets/overlay-pet/exports/stills/idle-base.png",
   "blendMode": "screen",
-  "states": ["idle", "listening", "thinking", "responding", "working", "approval", "blocked", "done"],
+  "states": ["idle", "listening", "thinking", "speaking-texting", "working", "approval", "blocked-error", "done"],
   "signals": ["arousal", "focus", "load", "voiceEnergy", "toolActivity", "memoryActivity", "errorPressure"]
 }
 ```
@@ -413,9 +449,9 @@ Check:
 
 - still frame against reference
 - 10-second idle loop
-- speaking/responding loop
+- speaking/texting loop
 - working loop
-- blocked state
+- blocked/error loop
 - visible canvas/video boundary
 - black background blending
 - glow banding
@@ -452,7 +488,7 @@ The pipeline is working when:
 - at least one high-quality lookdev loop exists
 - the frontend can display the lookdev asset cleanly
 - a WebGL overlay can react to continuous signals
-- the Overlay Pet can show at least idle, listening, responding, working, approval, blocked, and done
+- the Overlay Pet can show at least idle, listening, thinking, speaking/texting, working, approval, blocked/error, and done
 - visual QA is based on screenshots or video captures, not subjective memory
 
 ## Red Team Risks
