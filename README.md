@@ -7,7 +7,7 @@ It is designed to become more than a chatbot:
 - a thinking partner that challenges, verifies, and structures decisions
 - a Jarvis-style development executor through Codex
 - an operational Obsidian ontology for long-term memory
-- a Swift-native always-on-top Pet overlay for constant command/status presence
+- a Swift-native always-on-top Overlay Pet for constant command/status presence
 - a Command Gateway for Pet, Telegram, Discord, voice, and motion inputs
 - a skill-first agent system with permission policy, audit logs, and replayable state
 
@@ -17,7 +17,7 @@ The primary front is no longer a large dashboard-first UI.
 
 ```txt
 Primary HCI:
-  Swift-native always-on-top Pet overlay
+  Swift-native always-on-top Overlay Pet
 
 Secondary HCI:
   detailed panel/dashboard opened only when useful
@@ -29,7 +29,9 @@ Memory:
   Obsidian operational ontology
 ```
 
-The Pet is not the AI brain. It is the persistent surface for command, state, approval, and presence.
+The Overlay Pet is not the AI brain. It is the persistent surface for command, state, approval, and presence.
+
+There is one user-facing Overlay Pet appearance. Eden, Jarvis, and Hybrid are internal routes only; they must not create separate bodies, skins, route colors, badges, or visible mode labels.
 
 ## Core Architecture
 
@@ -95,7 +97,7 @@ Current design set:
 - [Lookdev Asset Pipeline](docs/blueprints/current/Lookdev-Asset-Pipeline.md)
 - [Motion System](docs/blueprints/current/Motion-System.md)
 - [Motion Stack Research](docs/blueprints/current/Motion_Stack_Research.md)
-- [Orb State Model](docs/blueprints/current/Orb_State_Model.md)
+- [Overlay Pet State Model](docs/blueprints/current/Overlay_Pet_State_Model.md)
 - [Reference Teardown](docs/blueprints/current/Reference-Teardown.md)
 - [UI/UX Brief](docs/blueprints/current/UI-UX-Brief.md)
 - [Design System](docs/blueprints/current/Design-System.md)
@@ -113,6 +115,7 @@ The latest blueprint closes the main implementation risks with these contracts:
 - Worker ownership uses leases, heartbeat, stale lease recovery, and idempotency.
 - Approval resume is bound to `actionHash`, `scopeSnapshot`, expiry, and a single-use `resumeToken`.
 - `ReservoirState -> PetSignal` is deterministic and replayable.
+- `route` and `routeScores` are routing metadata, not visual identity selectors.
 - `WindowPolicy` covers macOS full-screen, Spaces, Stage Manager, multi-display, click-through, shortcut conflict, and emergency hide behavior.
 - `ScreenContextPolicy` prevents raw screenshots from becoming durable memory by default.
 - Obsidian ontology objects require stable `object_id`, `schemaVersion`, conflict handling, migration, duplicate detection, and backlink repair.

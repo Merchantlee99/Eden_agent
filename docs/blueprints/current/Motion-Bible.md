@@ -1,15 +1,15 @@
-# Eden Orb Motion Bible
+# Eden Overlay Pet Motion Bible
 
 Date: 2026-05-03
 Status: Production direction baseline
 
 ## Purpose
 
-This document replaces the previous "keep coding the orb until it looks good" approach.
+This document replaces the previous "keep coding the Overlay Pet until it looks good" approach.
 
 The target is not a functional status widget. The target is a living AI presence with Dribbble-grade fluidity, organic continuity, and state-reactive behavior.
 
-The orb must feel like:
+The Overlay Pet must feel like:
 
 - an intelligent presence
 - a living energy core
@@ -26,7 +26,7 @@ It must not feel like:
 
 ## Non-Negotiable Outcome
 
-The user should be able to glance at the orb and feel:
+The user should be able to glance at the Overlay Pet and feel:
 
 ```txt
 It is listening.
@@ -64,7 +64,7 @@ Reject:
 
 ### Material
 
-The orb is not made of glass, metal, smoke, or water.
+The Overlay Pet is not made of glass, metal, smoke, or water.
 
 It should feel like a semi-biological energy membrane:
 
@@ -122,7 +122,7 @@ working circulation takes over
 previous idle glow decays slowly
 ```
 
-The orb should carry inertia from the previous state.
+The Overlay Pet should carry inertia from the previous state.
 
 ### 3. No Perfect Repetition
 
@@ -158,17 +158,22 @@ Each layer has semantic responsibility:
 | Particle lattice | context search, memory, reasoning, data flow |
 | Diagonal wave | speech, insight, active thought current |
 | Outer cilia | sensing, tool activity, external connections |
-| Wide aura | system arousal and route character |
+| Wide aura | system arousal and attention |
 
 ## Continuous Signal Model
 
-The 18-button state matrix remains useful for comparison, but it is not the final runtime model.
+The previous 18-button route matrix is deprecated. Current comparison should use one Pet identity with activity-state controls.
 
 The final runtime must use continuous signals:
 
 ```ts
-type OrbSignal = {
+type PetSignal = {
   route: "reflective" | "execution" | "hybrid";
+  routeScores?: {
+    reflective: number;
+    execution: number;
+    hybrid: number;
+  };
   activity:
     | "idle"
     | "listening"
@@ -176,7 +181,8 @@ type OrbSignal = {
     | "responding"
     | "working"
     | "approval"
-    | "interrupted";
+    | "blocked"
+    | "done";
   arousal: number;       // 0..1, overall system energy
   focus: number;         // 0..1, concentration / inward pull
   load: number;          // 0..1, context or tool workload
@@ -189,13 +195,15 @@ type OrbSignal = {
 };
 ```
 
+`route` is metadata. It is not a visual identity selector.
+
 Discrete state chooses the motion family. Continuous signals shape the body.
 
 Implementation note:
 
-- `OrbSignal` is now implemented in the frontend type model.
+- `PetSignal` is now implemented in the frontend type model.
 - The comparison harness now routes presets through continuous signal profiles.
-- The current renderer still adapts `OrbSignal` into the existing shader state; direct full-signal shader control remains a later production step.
+- The current renderer still adapts `PetSignal` into the existing shader state; direct full-signal shader control remains a later production step.
 
 ## State Grammar
 
@@ -316,7 +324,7 @@ Failure mode:
 
 - if it looks like an error, approvals become stressful
 
-### Interrupted
+### Blocked
 
 Feeling:
 
@@ -354,7 +362,7 @@ Route is not a visible mode label. It is a color and motion character.
 | focus | darker center | inward flow | sharper edge | slower but brighter | reduced | narrower |
 | load | deeper field | more layers | stable | moderate | tool pulses | medium |
 | confidence | stable | ordered | clean rim | clean path | low noise | smooth |
-| urgency | slight tension | interrupted flow | sharper highlight | short pulse | spikes | tighter |
+| urgency | slight tension | blocked flow | sharper highlight | short pulse | spikes | tighter |
 | voiceEnergy | minimal | ripple | syllable pulse | strong wave | low-mid | breathing pulse |
 | toolActivity | minimal | directional flow | strong stable rim | moderate | strong | steady |
 | memoryActivity | deeper core | context lattice | soft | slow current | low | cool glow |
@@ -382,8 +390,8 @@ settle into new baseline
 | thinking -> responding | 600ms-1200ms |
 | thinking -> working | 700ms-1400ms |
 | working -> approval | 500ms-900ms |
-| working -> interrupted | 150ms-450ms |
-| interrupted -> idle | 900ms-2200ms |
+| working -> blocked | 150ms-450ms |
+| blocked -> idle | 900ms-2200ms |
 
 ### Easing
 
@@ -396,7 +404,7 @@ Use:
 
 Avoid:
 
-- CSS class swaps for orb state
+- CSS class swaps for Overlay Pet state
 - hard remount as final runtime model
 - all uniforms interpolating at the same speed
 
@@ -410,10 +418,10 @@ The motion direction is acceptable only when:
 - thinking feels inward and slower than working
 - working feels like real execution, not a generic loader
 - approval feels suspended, not broken
-- interrupted feels blocked, not catastrophic
-- route changes are felt through color character, not labels
+- blocked feels blocked, not catastrophic
+- route changes do not change Pet identity; activity and intensity carry visible meaning
 - state changes carry inertia and afterglow
-- the orb remains the only signature motion object
+- the Overlay Pet remains the only signature motion object
 
 ## Red Team Checklist
 

@@ -12,7 +12,7 @@ This does not remove the Eden/Jarvis architecture. It changes the first user-fac
 
 ```txt
 Before:
-  web front / center orb / bottom stream / right status panel
+  web front / center Overlay Pet / bottom stream / right status panel
 
 After:
   always-on-top Swift Pet overlay
@@ -114,11 +114,21 @@ The Pet should be expressive but operational.
 
 Recommended visual style:
 
-- small character or orb-companion form, not a full dashboard mascot
+- one small original Overlay Pet form, not a dashboard mascot
 - dark transparent material for bubbles
 - very restrained text density
 - state communicated by animation, glow, posture, and micro-expression
 - no large modal overlay unless the user asks for detail
+
+Single appearance rule:
+
+```txt
+The user sees one Pet.
+Eden, Jarvis, and Hybrid do not get separate bodies, skins, colors, costumes, labels, or mascots.
+Internal routing may change what the system does, but not who the Pet appears to be.
+```
+
+The Pet may vary activity, intensity, posture, glow strength, face expression, and motion rhythm. It must keep the same silhouette and identity across all routes.
 
 The screenshot reference implies:
 
@@ -129,7 +139,7 @@ The screenshot reference implies:
 
 ## 5. State Model
 
-The existing `OrbSignal` concept should be generalized into `PetSignal`.
+`PetSignal` is the canonical runtime-facing signal for the Overlay Pet.
 
 ```txt
 PetSignal =
@@ -166,13 +176,21 @@ EdenEvent Stream
 
 The Pet must never write directly back into the reservoir.
 
-### Routes
+### Internal Routes
 
-| Route | Meaning | Visual Direction |
+Routes are internal routing state, not external appearance variants.
+
+| Route | Meaning | User-Visible Treatment |
 | --- | --- | --- |
-| Eden | thinking, memory, daily life, reflection | calm cyan/violet, soft breathing |
-| Jarvis | development, execution, tools, files | blue/rose, active mechanical rhythm |
-| Hybrid | strategy-to-execution bridge | magenta/electric, layered motion |
+| Eden | thinking, memory, daily life, reflection | same Pet, task wording may be reflective |
+| Jarvis | development, execution, tools, files | same Pet, task wording may be execution-focused |
+| Hybrid | strategy-to-execution bridge | same Pet, task wording may show synthesis |
+
+Renderer rule:
+
+- `route` and `routeScores` may influence routing metadata, task stream wording, and detail-panel context.
+- `route` and `routeScores` must not select a different Pet body, route-specific color family, route badge, or visible mode label.
+- The Overlay Pet visual state is primarily driven by `activity`, `attention`, `urgency`, `confidence`, `toolActivity`, `memoryActivity`, `voiceEnergy`, `predictionError`, `decisionPressure`, `approvalPressure`, and `errorPressure`.
 
 ### Activities
 
@@ -187,13 +205,13 @@ The Pet must never write directly back into the reservoir.
 | blocked | error, denial, or unsafe action | compressed posture, amber/red warning motion |
 | done | task completed | short release animation |
 
-The earlier 18-state orb matrix can become a Pet animation matrix:
+The earlier 18-state Overlay Pet matrix is deprecated.
 
 ```txt
-3 route families x 6 core activities
+current model = one Pet appearance x runtime activity states
 ```
 
-The additional `listening` and `done` states should be supported as runtime states even if the first comparison matrix stays smaller.
+The Pet should support `listening` and `done` as runtime states even if early visual tests focus on idle/responding/thinking/working/approval/blocked.
 
 ## 6. Native macOS Architecture
 
@@ -356,6 +374,10 @@ Route rule:
 | command has explicit actorHint | actorHint, unless policy blocks it |
 | no active command | previous route until `ttlSeconds`, then eden |
 
+Visual identity rule:
+
+The route result is metadata. It is not a skin selector.
+
 Activity priority:
 
 ```txt
@@ -376,6 +398,7 @@ Stability rules:
 - Do not show `done` longer than 3-5 seconds unless the user opens details.
 - If `derivedAt + ttlSeconds` is stale, the Pet must fall back to `idle` with a stale status hint.
 - `progress` may be null when work has no measurable progress.
+- The Pet silhouette, body material, face system, and base identity must remain identical across Eden, Jarvis, and Hybrid routing.
 
 ## 7. Animation Runtime Choice
 

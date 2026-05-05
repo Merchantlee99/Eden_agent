@@ -57,7 +57,7 @@ Human Input
   text / voice / motion / files / links
         |
 Eden Front
-  orb / command stream / execution log / approval dock / connection status
+  Overlay Pet / command stream / execution log / approval dock / connection status
         |
 Command Gateway
   event bus / thread registry / policy engine / tool router / audit log
@@ -468,7 +468,7 @@ Given a failed tool followed by a successful retry:
 Use:
 
 - Keeps recent context alive without saving everything.
-- Lets the orb react to actual state.
+- Lets the Overlay Pet react to actual state.
 - Helps the router know whether the user is in planning, debugging, decision, or execution flow.
 - Prevents every turn from being treated as an isolated prompt.
 
@@ -501,7 +501,7 @@ This is the main anti-hallucination and thinking-support loop.
 Example:
 
 ```txt
-Claim: "This library can support the orb."
+Claim: "This library can support the Overlay Pet."
 Prediction: It installs, builds, renders, and fits the lookdev direction.
 Observation: npm/build/browser QA/reference comparison.
 Error: build failure, visual mismatch, performance issue, or API mismatch.
@@ -680,15 +680,15 @@ type PermissionPolicyInput = {
 
 The front should show one AI presence:
 
-- center: orb as state instrument
+- center: Overlay Pet as state instrument
 - bottom: conversation / work stream / execution log / approval queue
 - right: connections / memory context / active tools / current risk
 - no hard Eden/Jarvis mode switch
 
-Orb state should be driven by `ReservoirState` and `OrbSignal`:
+Overlay Pet state should be driven by `ReservoirState` and `PetSignal`:
 
 ```txt
-routeEden/routeJarvis/routeHybrid -> color family
+routeEden/routeJarvis/routeHybrid -> internal metadata only
 activity -> motion family
 predictionError -> rim instability
 toolActivity -> cilia/external field
@@ -698,7 +698,9 @@ urgency -> tension/brightness
 confidence -> stability/smoothness
 ```
 
-The orb should not expose private internal state as text. It should make the system feel alive and legible.
+The Overlay Pet has one external identity. Eden/Jarvis/Hybrid routing must not produce different Pet appearances.
+
+The Overlay Pet should not expose private internal state as text. It should make the system feel alive and legible.
 
 ## 16. Skill-First Implementation Logic
 
@@ -825,7 +827,7 @@ If implemented correctly, the upgraded Jarvis should produce:
 - Better thinking support: Eden challenges and verifies rather than just rephrasing.
 - Better development flow: Jarvis can implement, test, review, and report with context.
 - Cleaner Obsidian: only durable knowledge becomes canonical memory.
-- More natural HCI: the orb and stream reflect real activity instead of fake status.
+- More natural HCI: the Overlay Pet and stream reflect real activity instead of fake status.
 - Lower cognitive overhead: the user sees what is happening, what is pending, and what needs judgment.
 
 ## 19. Logical And Code Feasibility Review
@@ -835,7 +837,7 @@ If implemented correctly, the upgraded Jarvis should produce:
 - Event log + reservoir + Obsidian ontology is implementable with normal local files and TypeScript/Python scripts.
 - Skill registry and workflow router are implementable without a heavy agent framework.
 - Predictive verification is implementable as a claim/evidence discipline even before any machine learning.
-- Orb signal mapping already aligns with the existing frontend architecture.
+- Overlay Pet signal mapping already aligns with the existing frontend architecture.
 - Obsidian CLI is a reasonable stable memory path if MCP is unreliable.
 
 ### Fragile Assumptions
@@ -866,7 +868,7 @@ This is not an MVP split. It is the dependency order that keeps the full archite
 3. Build file-event Command Gateway baseline adapter.
 4. Build permission policy engine.
 5. Build reservoir reducer and replay tests.
-6. Build front state adapter: event stream -> reservoir -> orb/workstream/status.
+6. Build front state adapter: event stream -> reservoir -> Overlay Pet/workstream/status.
 7. Build skill registry and tool router.
 8. Build Obsidian CLI memory search/propose/consolidate.
 9. Build predictive loop over claims and evidence.
@@ -888,7 +890,7 @@ Jarvis v2 =
   + Predictive verification loop
   + Policy-aware tool router
   + Auditable action queue
-  + Orb-based HCI state surface
+  + Overlay Pet-based HCI state surface
 ```
 
 The system is coherent if it is treated as an operating architecture.

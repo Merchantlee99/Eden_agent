@@ -14,7 +14,7 @@ The product should feel focused, controlled, and technically capable. It should 
 - One continuous command surface.
 - No visible Eden/Jarvis mode tabs or center-panel actor labels.
 - Information density is acceptable, but hierarchy must be clear.
-- The orb is a state instrument, not a hero illustration.
+- The Overlay Pet is a state instrument, not a hero illustration.
 - Logs and approvals must remain more legible than animation.
 - Avoid card-inside-card layouts.
 - Avoid one-note purple, blue-slate, beige, or orange/brown palettes.
@@ -57,7 +57,7 @@ Scale:
 - micro/status: 12px
 - panel title: 14px medium
 - current task: 18px medium
-- orb state label: 20px medium
+- Overlay Pet state label: 20px medium
 
 Rules:
 
@@ -84,7 +84,7 @@ Recommended:
 - small controls: 6px
 - panels: 8px
 - command dock: 10px only if visually justified
-- orb: circular
+- Overlay Pet: circular
 
 Avoid heavily rounded pill-heavy UI unless the element is a natural chip/status token.
 
@@ -95,7 +95,7 @@ Desktop:
 - top rail height: 44px
 - right panel width: 320px to 380px
 - bottom dock height: 34vh to 42vh
-- orb zone min height: remaining viewport
+- Overlay Pet zone min height: remaining viewport
 
 Command dock:
 
@@ -107,7 +107,7 @@ Command dock:
 
 Required MVP components:
 
-- StatusOrb
+- OverlayPetView
 - TopStatusRail
 - CommandInput
 - WorkStream
@@ -152,54 +152,40 @@ Durations:
 
 - hover/focus: 120ms to 180ms
 - panel transitions: 180ms to 240ms
-- orb breathing: slow idle, faster during active work
+- Overlay Pet breathing: slow idle, faster during active work
 
 Reduced motion:
 
-- replace orb animation with a static luminous ring plus explicit state text
+- replace Overlay Pet animation with a static luminous ring plus explicit state text
 - keep all state labels visible
 
-## Orb Routing Signatures
+## Overlay Pet Identity
 
-The orb expresses internal routing without text labels.
+The Overlay Pet has one user-facing identity.
 
-Thinking, memory, daily context:
+Rules:
 
-- calmer breathing
-- cyan/violet accent
-- stable luminous shell
-- slower ring grain
+- no separate Eden/Jarvis/Hybrid bodies
+- no route-specific skins, badges, costumes, or visible actor labels
+- no route color families as the primary visual identity
+- the same silhouette, face system, and base material remain in every state
+- route can appear in audit/debug/detail context only
 
-Development, files, GitHub, execution:
+The Pet expresses state through activity, attention, urgency, confidence, tool activity, memory activity, voice energy, decision pressure, and error pressure.
 
-- rose/blue accent
-- sharper rim
-- clearer progress behavior
+## Overlay Pet Motion States
 
-Hybrid planning-to-build work:
-
-- magenta/electric transition
-- stronger synthetic color handoff
-- alternating calm and structured motion
-- visible handoff pulse when moving from planning to execution
-
-These signatures combine with six motion states. Route color expresses the work character; motion expresses current activity.
-
-## Orb Motion States
-
-The orb has six primary motion states:
+The Overlay Pet has six primary motion states:
 
 - Idle
 - Responding
 - Thinking
 - Working
 - Approval
-- Interrupted
-
-This creates 18 core presets:
+- Blocked
 
 ```txt
-3 route color families x 6 motion states = 18 orb presets
+1 Pet identity x activity states
 ```
 
 The six motion states:
@@ -209,16 +195,16 @@ The six motion states:
 - Thinking: slower scan-like organic flow.
 - Working: stronger output volume and driven movement.
 - Approval: slowed motion and suspended rim tension without a separate overlay.
-- Interrupted: broken rhythm and visible flow break. This covers both error and blocked work at the orb level.
+- Blocked: broken rhythm and visible flow break. This covers both error and blocked work at the Overlay Pet level.
 
 Each state should map to:
 
-- orb treatment
+- Overlay Pet treatment
 - status label
 - work stream event style
 - optional right-panel highlight
 
-The normal UI may still describe the exact cause as "error" or "blocked" in logs and panels. The orb should treat both as one interrupted motion family.
+The normal UI may still describe the exact cause as "error" or "blocked" in logs and panels. The Overlay Pet should treat both as one blocked motion family.
 
 ## Anti-Patterns To Avoid
 

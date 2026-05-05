@@ -33,7 +33,7 @@ The user should not need to think:
 
 The UI should instead communicate:
 
-- routed work character through the orb's color, motion, ring density, activity layer, and rim behavior
+- current activity through the Overlay Pet's motion, posture, glow, density, pulse rhythm, and tension
 - current activity
 - current context
 - current permission level
@@ -47,7 +47,7 @@ The UI should instead communicate:
 ├───────────────────────────────────────────┬────────────────────────┤
 │                                           │ Right Status Panel      │
 │                                           │ - Connections           │
-│             Central Status Orb            │ - Active context        │
+│             Central Status Overlay Pet            │ - Active context        │
 │                                           │ - Memory candidates     │
 │                                           │ - Thread registry       │
 │                                           │ - Calendar snapshot     │
@@ -60,9 +60,9 @@ The UI should instead communicate:
 └────────────────────────────────────────────────────────────────────┘
 ```
 
-## Central Status Orb
+## Central Status Overlay Pet
 
-The orb is the system presence and state indicator. It is not just decoration.
+The Overlay Pet is the system presence and state indicator. It is not just decoration.
 
 It should express six motion states:
 
@@ -71,9 +71,9 @@ It should express six motion states:
 - thinking
 - working
 - approval
-- interrupted
+- blocked
 
-The orb can encode state through:
+The Overlay Pet can encode state through:
 
 - motion speed
 - color accent
@@ -82,31 +82,27 @@ The orb can encode state through:
 - pulse rhythm
 - confidence or verification state
 
-The orb should not display the internal actor name. Routing should be felt visually:
+The Overlay Pet should not display the internal actor name or change into a route-specific body.
 
-- thinking, daily, memory, and reflective work: calmer cyan/violet ring with slower breathing
-- development, file, GitHub, and execution work: stronger rose/blue movement with clearer driven behavior
-- mixed planning-to-implementation work: magenta/electric blend that connects reflection and execution
-
-Motion state should be separate from route color:
+Motion state should be separate from internal route:
 
 - idle: slow breathing, low glow, stable organic motion
 - responding: speech-like volume pulse
 - thinking: slower scan-like organic flow
 - working: higher output volume and driven movement
 - approval: slowed motion, suspended tension
-- interrupted: broken rhythm and visible flow break
+- blocked: broken rhythm and visible flow break
 
-Interrupted covers both errors and blocked work at the orb level. The exact reason should appear in the work stream, execution log, or right status panel, not as a separate orb family.
+Blocked covers both errors and blocked work at the Overlay Pet level. The exact reason should appear in the work stream, execution log, or right status panel, not as a separate Overlay Pet family.
 
-If text appears near the orb, it should describe the task state, not the internal actor name.
+If text appears near the Overlay Pet, it should describe the task state, not the internal actor name.
 
 Avoid:
 
 - excessive surface noise that hides state
 - constant visual noise
 - animation that implies progress when no work is happening
-- making the orb the only place where state is communicated
+- making the Overlay Pet the only place where state is communicated
 
 ## Bottom Command Dock
 
@@ -189,7 +185,7 @@ Routing should happen internally:
 - coding/local-file/GitHub questions route toward Jarvis
 - product planning that leads to implementation routes toward Hybrid
 
-The routed target is not shown as a mode or actor label in the center panel. It can be available in audit/debug views, but the normal user experience should rely on orb behavior, work stream wording, context chips, and approval state.
+The routed target is not shown as a mode, actor label, or separate Pet appearance. It can be available in audit/debug views, but the normal user experience should rely on one Overlay Pet identity, work stream wording, context chips, and approval state.
 
 ## Approval UX
 
@@ -231,13 +227,13 @@ Desktop first for MVP.
 
 Required desktop layout:
 
-- central orb remains visible
+- central Overlay Pet remains visible
 - bottom dock remains usable
 - right panel can collapse but must not disappear entirely
 
 Mobile can be deferred, but the model should eventually become:
 
-- orb/status first
+- Overlay Pet/status first
 - command input second
 - status panel as sheet
 - logs and approvals as bottom sheet lanes
@@ -245,8 +241,8 @@ Mobile can be deferred, but the model should eventually become:
 ## Acceptance Criteria
 
 - The user can interact without choosing a mode.
-- The current routed work character is perceptible through the orb without requiring visible Eden/Jarvis/Hybrid labels.
+- The current activity is perceptible through the Overlay Pet without requiring visible Eden/Jarvis/Hybrid labels or separate Pet appearances.
 - Work stream, execution log, and approval queue are visible or one click away.
 - Right panel clearly shows connection and permission state.
-- The orb adds situational awareness rather than replacing functional UI.
+- The Overlay Pet adds situational awareness rather than replacing functional UI.
 - The design can support voice and motion input later without changing the architecture.

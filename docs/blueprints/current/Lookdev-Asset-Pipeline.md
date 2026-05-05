@@ -5,7 +5,7 @@ Status: Production pipeline baseline
 
 ## Purpose
 
-This pipeline exists because the target quality is not "a working coded orb."
+This pipeline exists because the target quality is not "a working coded Overlay Pet."
 
 The target is:
 
@@ -54,7 +54,7 @@ Goal:
 Inputs:
 
 - user's local reference videos
-- Dribbble orb/motion references
+- Dribbble motion references
 - any selected TouchDesigner/Blender/Spline examples
 
 Deliverables:
@@ -73,7 +73,7 @@ Acceptance:
 
 Goal:
 
-- define the orb's body language before code
+- define the Overlay Pet's body language before code
 
 Deliverable:
 
@@ -105,7 +105,7 @@ Best for:
 
 Output candidates:
 
-- black-core orb
+- black-core Overlay Pet
 - membrane + cilia
 - particle lattice
 - diagonal synapse wave
@@ -335,14 +335,14 @@ Preferred sources:
 | Obsidian search/write | `memoryActivity`, reflective route |
 | calendar/Gmail/Drive requests | `toolActivity`, route depending on task |
 | approval queue | `activity=approval`, `urgency` |
-| errors/blocked permissions | `activity=interrupted`, `errorPressure` |
+| errors/blocked permissions | `activity=blocked`, `errorPressure` |
 
 ## Folder Structure
 
 Recommended project structure:
 
 ```txt
-assets/orb/
+assets/overlay-pet/
   references/
   lookdev/
     touchdesigner/
@@ -354,7 +354,7 @@ assets/orb/
     overlays/
     stills/
   manifests/
-    orb-assets.json
+    pet-assets.json
 
 docs/ai/current/
   Motion-Bible.md
@@ -372,12 +372,12 @@ Example:
 
 ```json
 {
-  "id": "eden-orb-v1",
+  "id": "eden-Overlay Pet-v1",
   "family": "black-core-organic-sphere",
-  "baseLoop": "assets/orb/exports/base-loops/idle-reflective.webm",
-  "fallbackStill": "assets/orb/exports/stills/idle-reflective.png",
+  "baseLoop": "assets/overlay-pet/exports/base-loops/idle-reflective.webm",
+  "fallbackStill": "assets/overlay-pet/exports/stills/idle-reflective.png",
   "blendMode": "screen",
-  "states": ["idle", "listening", "thinking", "responding", "working", "approval", "interrupted"],
+  "states": ["idle", "listening", "thinking", "responding", "working", "approval", "blocked", "done"],
   "signals": ["arousal", "focus", "load", "voiceEnergy", "toolActivity", "memoryActivity", "errorPressure"]
 }
 ```
@@ -386,13 +386,13 @@ Example:
 
 Implemented on 2026-05-03:
 
-- Created the `assets/orb/` source folder scaffold for references, lookdev work, exports, and manifests.
-- Created the public runtime manifest at `public/assets/orb/manifests/orb-assets.json`.
-- Added a typed manifest contract in `src/orb/orbAssets.ts`.
-- Added a runtime-facing `OrbSignal` model in `src/types.ts`.
-- Added `src/orb/orbSignals.ts` to map comparison presets into continuous signal profiles.
-- Connected the current 18-button comparison harness through `OrbSignal` before rendering.
-- Removed the canvas remount cut so route/activity changes can interpolate through the existing shader uniform controller.
+- Created the `assets/overlay-pet/` source folder scaffold for references, lookdev work, exports, and manifests.
+- Created the public runtime manifest at `public/assets/overlay-pet/manifests/pet-assets.json`.
+- Added a typed manifest contract in `src/overlay-pet/petAssets.ts`.
+- Added a runtime-facing `PetSignal` model in `src/types.ts`.
+- Added `src/overlay-pet/petSignals.ts` to map comparison presets into continuous signal profiles.
+- Connected the activity comparison harness through `PetSignal` before rendering.
+- Removed the canvas remount cut so activity changes can interpolate through the existing shader uniform controller.
 
 Current production status:
 
@@ -415,7 +415,7 @@ Check:
 - 10-second idle loop
 - speaking/responding loop
 - working loop
-- interrupted state
+- blocked state
 - visible canvas/video boundary
 - black background blending
 - glow banding
@@ -452,15 +452,15 @@ The pipeline is working when:
 - at least one high-quality lookdev loop exists
 - the frontend can display the lookdev asset cleanly
 - a WebGL overlay can react to continuous signals
-- the orb can show at least idle, listening, responding, working, approval, interrupted
+- the Overlay Pet can show at least idle, listening, responding, working, approval, blocked, and done
 - visual QA is based on screenshots or video captures, not subjective memory
 
 ## Red Team Risks
 
 ### Real Risks
 
-- the orb looks beautiful but cannot react to AI state
-- the orb reacts but looks cheap
+- the Overlay Pet looks beautiful but cannot react to AI state
+- the Overlay Pet reacts but looks cheap
 - asset export produces browser artifacts
 - TouchDesigner/Blender workflow becomes too manual
 - user keeps changing references before lookdev lock

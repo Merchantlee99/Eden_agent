@@ -54,7 +54,7 @@ Instead:
 
 - the user talks to one surface
 - the system internally routes each request
-- the central status orb expresses routing through animation, color, ring density, activity layer, and rim behavior
+- the Overlay Pet keeps one external appearance and expresses activity through motion, posture, glow, and urgency
 - the right status panel shows context, permissions, connections, and blockers
 - Eden/Jarvis/Hybrid remain backend actor concepts, not primary UI labels
 
@@ -67,6 +67,7 @@ Internal actors:
 UI rule:
 
 - Do not render "Eden", "Jarvis", or "Hybrid" as selectable modes or prominent center-panel labels.
+- Do not create separate Eden/Jarvis/Hybrid Pet bodies, skins, route colors, costumes, or badges.
 - The system may store the routed actor internally for registry, audit, permissions, and debugging.
 - The user-facing surface should feel like one continuous AI presence.
 
@@ -292,7 +293,7 @@ proposed -> previewed -> approved -> executed -> audited
 Ship-now scope:
 
 - one-page command surface
-- central status orb
+- central status Overlay Pet
 - bottom conversation/work stream/execution log/approval dock
 - right status and connections panel
 - mock thread registry
@@ -315,7 +316,7 @@ Deferred scope:
 The first useful version succeeds if:
 
 - the user can issue one command from the front
-- the UI clearly shows whether the system is idle, responding, thinking, working, waiting for approval, or interrupted
+- the UI clearly shows whether the system is idle, responding, thinking, working, waiting for approval, or blocked
 - the user can see what context would be used
 - the user can see pending actions before execution
 - the UI can represent Eden/Jarvis/Hybrid internally without visible mode switching

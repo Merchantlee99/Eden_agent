@@ -44,8 +44,16 @@ The front shows one AI presence. Eden, Jarvis, and Hybrid are internal actors.
 
 ```txt
 Eden Front now means the Swift-native always-on-top Pet overlay first.
-The larger dashboard/orb view becomes an optional detailed panel, not the primary surface.
+The larger dashboard view becomes an optional detailed panel, not the primary surface.
 See: Swift_Native_Codex_Pet_Blueprint.md
+```
+
+2026-05-05 visual identity update:
+
+```txt
+The user-facing appearance is one Overlay Pet.
+Eden, Jarvis, and Hybrid are internal routes only.
+No separate Eden/Jarvis/Hybrid bodies, skins, route colors, badges, or visible mode labels.
 ```
 
 ## 2. Whole System Map
@@ -80,7 +88,7 @@ flowchart TD
 
   Results --> Audit
   Audit --> Reservoir
-  Reservoir --> PetSignal["PetSignal<br/>formerly OrbSignal"]
+  Reservoir --> PetSignal["PetSignal"]
   PetSignal --> Front
 ```
 
@@ -368,7 +376,7 @@ flowchart LR
   Next --> Activity["arousal / focus / load"]
   Next --> Risk["predictionError / errorPressure / urgency"]
   Next --> IO["toolActivity / memoryActivity / voiceEnergy"]
-  Next --> Pet["PetSignal<br/>OrbSignal-compatible"]
+  Next --> Pet["PetSignal"]
   Next --> RouterBias["Router Bias"]
 ```
 
@@ -435,6 +443,7 @@ Mapping rules:
 
 - `routeScores` preserve Eden/Jarvis/Hybrid affinity even when the visual Pet shows one dominant route.
 - `route` is the dominant score unless scores are close; close mixed context maps to `hybrid`.
+- `route` and `routeScores` are metadata for routing, audit, task wording, and detail panels. They must not select separate Pet appearances.
 - `activity` is chosen by priority: `blocked`, `approval`, `working`, `responding`, `listening`, `thinking`, `done`, `idle`.
 - `working` requires a real `claimed` or `running` command.
 - `approval` requires a pending approval event.
@@ -793,7 +802,6 @@ detailed panel: optional dashboard for long logs and diagnostics
 Pet mapping:
 
 ```txt
-routeEden / routeJarvis / routeHybrid -> color family
 activity -> motion family
 predictionError -> rim instability
 toolActivity -> cilia / external field
@@ -806,6 +814,8 @@ confidence -> stability
 Rules:
 
 - Pet state must be driven by event/reducer state, not hardcoded fake progress.
+- There is exactly one user-facing Overlay Pet appearance.
+- Eden, Jarvis, and Hybrid routes must not create separate visual bodies, skins, route colors, badges, or visible mode labels.
 - The Pet must not own durable memory.
 - The Pet must not bypass Command Gateway policy.
 - Full dashboard surfaces are opened on demand, not shown by default.
@@ -1251,7 +1261,7 @@ Eden/Jarvis Final =
 - `Eden_Jarvis_Product_Architecture.md`
 - `Swift_Native_Codex_Pet_Blueprint.md`
 - `Motion-Bible.md`
-- `Orb_State_Model.md`
+- `Overlay_Pet_State_Model.md`
 - Artem Kirsanov: Reservoir Computing, Predictive Coding, Modular Architecture, Cognitive Maps, Memory Selection
 - Anthropic: Building Effective Agents, Skills over Agents
 - OpenClaw: Gateway, Skills, Showcase, Security

@@ -50,13 +50,13 @@ Animated interface layer:
 - Motion for React UI transitions and micro-interactions
 - GSAP for timeline and scroll orchestration
 
-Orb / cinematic motion layer:
+Overlay Pet / cinematic motion layer:
 
 - Three.js / React Three Fiber / GLSL for real-time visuals
 - Theatre.js for keyframed Three.js or complex variable animation
 - Blender or TouchDesigner for lookdev and prerendered high-fidelity motion
 - Spline for fast 3D scene prototyping
-- Rive or dotLottie for small stateful vector animations, not the main volumetric orb
+- Rive or dotLottie for small stateful vector animations; use one Overlay Pet identity rather than multiple route-specific variants
 
 ## Magic UI Positioning
 
@@ -72,7 +72,7 @@ Use it for:
 Do not use it for:
 
 - entire app visual identity
-- central orb replacement
+- Overlay Pet surface replacement
 - heavy operational panels
 - multiple simultaneous high-motion effects
 
@@ -84,9 +84,9 @@ Important Magic UI candidates:
 - Particles, Light Rays, Noise Texture: background atmosphere with restraint
 - Blur Fade, Text Animate, Typing Animation: controlled text motion
 
-## Orb-Specific Recommendation
+## Overlay Pet-Specific Recommendation
 
-The central orb should be handled as a separate motion product.
+The Overlay Pet should be handled as a separate motion product.
 
 Best path:
 
@@ -102,7 +102,7 @@ Reference lock
 Default target:
 
 ```txt
-hybrid orb = prerendered or lookdev-matched base + WebGL state overlay
+Overlay Pet = one lookdev-matched base identity + runtime state animation
 ```
 
 This gives better odds of Dribbble-level optical quality than code-only shader exploration.
@@ -125,7 +125,7 @@ The local `ui-ux-design` skill now requires these gates for high-fidelity UI:
 Before redesigning the front:
 
 - collect 5-10 references
-- choose one orb visual family: liquid, plasma, glass, energy core, or orbital intelligence
+- choose one Overlay Pet visual family: companion core, living membrane, soft machine, energy creature, or orbital intelligence
 - define what Eden should feel like in the first 3 seconds
 - decide whether the first version uses real-time WebGL, prerendered video, or hybrid
 - rebuild the shell using fewer panels, stronger hierarchy, better spacing, and a dedicated visual centerpiece
@@ -144,4 +144,4 @@ Before redesigning the front:
 - dotLottie Web: https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-web/
 - Blender command line: https://docs.blender.org/manual/en/dev/advanced/command_line/arguments.html
 - Shader Park: https://docs.shaderpark.com/
-- Dribbble orb references: https://dribbble.com/tags/orb
+- Dribbble motion references: https://dribbble.com/tags/orb

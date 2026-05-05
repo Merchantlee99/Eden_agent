@@ -19,9 +19,9 @@ Status: Current WebGL prototype, superseded for production by Motion Bible
 | hover/focus | 120ms-220ms |
 | small UI transition | 180ms-280ms |
 | panel enter/exit | 260ms-450ms |
-| orb minor state shift | 450ms-700ms |
-| orb medium state shift | 700ms-1200ms |
-| orb major route shift | 1200ms-1800ms |
+| Overlay Pet minor state shift | 450ms-700ms |
+| Overlay Pet medium state shift | 700ms-1200ms |
+| Overlay Pet major activity shift | 1200ms-1800ms |
 | ambient loop | 8s-18s |
 
 ## Easing
@@ -30,8 +30,8 @@ Use:
 
 - standard UI: `cubic-bezier(0.2, 0.8, 0.2, 1)`
 - precise/technical: `cubic-bezier(0.16, 1, 0.3, 1)`
-- error/interrupted: sharper ease-out, no bounce
-- orb transitions: spring or shader uniform interpolation
+- error/blocked: sharper ease-out, no bounce
+- Overlay Pet transitions: spring or shader uniform interpolation
 
 Avoid:
 
@@ -39,26 +39,26 @@ Avoid:
 - bounce on serious/operational UI
 - simultaneous unrelated animations
 
-## Orb State Rule
+## Overlay Pet State Rule
 
-Keep the 18 preset model:
+The 18 route-preset model is deprecated.
 
 ```txt
-3 route color families x 6 motion states
+1 Overlay Pet identity x runtime activity states
 ```
 
 Implemented redesign direction:
 
-- Orb family: ReferenceSphere, locally owned and Eden-customized
-- UI shell motion: removed for this phase except 18 comparison buttons
-- Orb motion: owned R3F/GLSL shader with state-driven uniforms and synthetic audio envelope
+- Overlay Pet family: ReferenceSphere, locally owned and Eden-customized
+- UI shell motion: removed for this phase except activity comparison controls
+- Overlay Pet motion: owned R3F/GLSL shader with state-driven uniforms and synthetic audio envelope
 - Panel motion: out of scope
 
-The orb should be the only signature motion object in the first viewport.
+The Overlay Pet should be the only signature motion object in the first viewport.
 
 Production note:
 
-The current WebGL orb is a prototype and comparison harness. The production direction is now:
+The current WebGL Overlay Pet is a prototype and comparison harness. The production direction is now:
 
 ```txt
 Motion-Bible.md
@@ -67,38 +67,38 @@ Motion-Bible.md
 -> runtime WebGL/state overlay
 ```
 
-The final orb should not be judged by the current shader alone.
+The final Overlay Pet should not be judged by the current shader alone.
 
-## Orb Rendering Logic
+## Overlay Pet Rendering Logic
 
-The current orb is a real-time WebGL instrument, not a prerendered asset.
+The current Overlay Pet is a real-time WebGL instrument, not a prerendered asset.
 
 - Base: owned `ReferenceSphereOrb` shader.
 - Renderer: Three.js/R3F plane shader that renders a spherical illusion.
 - Structure: black core, particle lattice, diagonal internal wave, hot rim, outer corona.
-- Customization: Eden route colors drive rim, lattice, hot highlights, and halo.
-- Motion control: each Eden motion state drives pulse, speed, density, fracture, progress, and synthetic audio uniforms.
+- Customization: one Pet identity drives rim, lattice, hot highlights, and halo.
+- Motion control: each activity state drives pulse, speed, density, fracture, progress, and synthetic audio uniforms.
 - Speaking/texting: responding state uses higher, faster synthetic audio modulation.
 - Halo: shader fake-bloom, CSS drop glow, rim bloom, close halo, wide halo, and radial cilia are separated.
-- Transition: state comparison now keeps one R3F canvas alive and interpolates shader uniforms through the internal state ref. This preserves route/activity correctness while avoiding hard canvas remount cuts.
+- Transition: state comparison now keeps one R3F canvas alive and interpolates shader uniforms through the internal state ref. This preserves activity correctness while avoiding hard canvas remount cuts.
 
 ## Motion Bible Runtime Bridge
 
 Implemented bridge:
 
-- `OrbSignal` is now the canonical runtime-facing state shape.
-- The 18 comparison buttons still exist, but they now create continuous `OrbSignal` presets before being translated into the current shader state.
-- Route bias adjusts the signal profile instead of hardcoding every visual value per button.
-- `listening` exists in the signal model even though it is not part of the 18-button comparison matrix yet.
-- The orb exposes `data-orb-route` and `data-orb-activity` for QA and future runtime routing.
+- `PetSignal` is now the canonical runtime-facing state shape.
+- Comparison controls create continuous `PetSignal` presets before being translated into the current shader state.
+- Route remains metadata and must not select a different visual identity.
+- `listening` and `done` exist in the signal model even if early comparison controls focus on fewer states.
+- The Overlay Pet exposes `data-pet-activity` for QA and may expose route metadata only for debug/audit views.
 
 Current bridge limit:
 
-- The shader still receives a legacy `OrbState` adapter. The next production pass should move more signal values directly into visual uniforms instead of compressing them into `intensity`, `progress`, `audioLevel`, and `contextLoad`.
+- The shader still receives a legacy `PetVisualState` adapter. The next production pass should move more signal values directly into visual uniforms instead of compressing them into `intensity`, `progress`, `audioLevel`, and `contextLoad`.
 
 ## Layered Animation Model
 
-The orb is treated as stacked motion layers inside one shader:
+The Overlay Pet is treated as stacked motion layers inside one shader:
 
 | Layer | Visual Role | Animation Logic | State Inputs |
 | --- | --- | --- | --- |
@@ -117,15 +117,15 @@ Expected motion:
 - Thinking: denser lattice with slower scan.
 - Working: active rim/progress behavior and stronger external cilia/sheath.
 - Approval: slowed and held outer circle tension.
-- Interrupted: fracture streaks and broken pulse layered over the rim.
+- Blocked: fracture streaks and broken pulse layered over the rim.
 
 ## State Semantics
 
-Color family communicates responsibility:
+External appearance rule:
 
-- Cyan / Violet: reflective context, memory, calendar, Obsidian.
-- Rose / Blue: execution, development, files, GitHub.
-- Magenta / Electric: hybrid synthesis, strategy-to-execution bridge.
+- One Overlay Pet body communicates all work.
+- Eden/Jarvis/Hybrid are internal route metadata.
+- Route must not create separate color families, skins, bodies, badges, or visible actor labels.
 
 Motion communicates activity:
 
@@ -134,7 +134,7 @@ Motion communicates activity:
 - Thinking: slower scan-like modulation and denser lattice.
 - Working: brighter rim and progress arc behavior.
 - Approval: low-volume held tension.
-- Interrupted: broken pulse and fracture behavior.
+- Blocked: broken pulse and fracture behavior.
 
 ## QA Requirements
 

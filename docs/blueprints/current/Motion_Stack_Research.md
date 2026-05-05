@@ -5,7 +5,7 @@ Status: Superseded by Motion Bible + Lookdev Asset Pipeline
 
 ## Conclusion
 
-For Dribbble-level orb work, do not rely on generic CSS, simple canvas particles, or a single prompt.
+For Dribbble-level Overlay Pet work, do not rely on generic CSS, simple canvas particles, or a single prompt.
 
 The practical path is:
 
@@ -26,7 +26,7 @@ This document remains as the tool-role research baseline.
 
 ## Tool Roles
 
-| Tool | Best Use | Eden Orb Fit |
+| Tool | Best Use | Eden Overlay Pet Fit |
 | --- | --- | --- |
 | Three.js / R3F / GLSL | realtime 3D, shader, particle, state-reactive graphics | high |
 | Blender | high-fidelity lookdev, lighting, material, prerendered loop | high |
@@ -34,9 +34,9 @@ This document remains as the tool-role research baseline.
 | Spline | fast browser-based 3D prototyping and embeddable scenes | medium-high |
 | GSAP | timeline, sequencing, scroll, uniform/camera orchestration | high |
 | Theatre.js | browser-based keyframe editing for Three.js variables | high |
-| Motion | React UI micro-interactions and layout animation | high for UI, medium for orb |
-| Rive | stateful vector/2D UI motion | medium for indicators, low for volumetric orb |
-| dotLottie | lightweight vector animation playback | medium for micro-motion, low for volumetric orb |
+| Motion | React UI micro-interactions and layout animation | high for UI, medium for Overlay Pet |
+| Rive | stateful vector/2D UI motion | medium for indicators, low for volumetric Overlay Pet |
+| dotLottie | lightweight vector animation playback | medium for micro-motion, low for volumetric Overlay Pet |
 | Shader Park | shader idea sketching and SDF exploration | medium-high for prototyping |
 
 ## Real-Time Shader Path
@@ -96,19 +96,19 @@ Motion Bible
 Phase 1:
 
 - reference teardown
-- choose one orb family
-- create `Orb Lookdev Brief`
+- choose one Overlay Pet family
+- create `Overlay Pet Lookdev Brief`
 - prototype either Blender/Spline/TouchDesigner look or a high-quality R3F shader sample
 
 Phase 2:
 
 - compare realtime vs prerender on desktop/mobile
-- keep only one signature orb direction
+- keep only one signature Overlay Pet direction
 - rebuild Eden Front around that motion centerpiece
 
 Phase 3:
 
-- connect orb state to real system state
+- connect Overlay Pet state to real system state
 - add reduced-motion and low-power fallback
 - perform screenshot and 10-30 second motion QA
 

@@ -25,7 +25,7 @@ Observed traits to adopt:
 - subtle glass shell and soft outer corona
 - localized bright white rim highlights
 - particle lattice bound to the sphere surface
-- diagonal internal wave crossing the orb
+- diagonal internal wave crossing the Overlay Pet
 - thin external orbit circle around the sphere
 - sparse corona particles and radial hairline aura
 - state changes through rim brightness, pulse, lattice density, progress arc, and fracture behavior
@@ -35,14 +35,14 @@ Observed traits to reject:
 
 - visible rectangular video/canvas boundary
 - label-heavy internal state readouts
-- multiple UI panels competing with the orb
+- multiple UI panels competing with the Overlay Pet
 - hard color cuts between states
 - generic purple-blue gradient as the whole design language
 - filled pearl-sphere layers from the previous pass
-- flower/blob orb shapes that do not match the new reference
+- flower/blob Overlay Pet shapes that do not match the new reference
 - mechanical 3D torus geometry
 
-## Orb Families To Choose From
+## Overlay Pet Families To Choose From
 
 Pick one primary family:
 
@@ -63,18 +63,18 @@ Rationale:
 - The provided `original-6433...` reference is a particle-lattice energy sphere, not a Siri-style blob.
 - SmoothUI is useful for dot/blur/contrast ideas, but it is not a true 3D sphere renderer.
 - voiceorb is the closest technical reference because it uses Three.js/GLSL, audio state, Fresnel edges, and shader displacement.
-- ReactBits Orb is useful for hue and active distortion ideas, but OGL was not added because this app already uses Three.js/R3F.
-- Eden can now customize route colors and motion behavior from an owned shader without depending on a third-party orb primitive.
-- State meaning should come from color and motion intensity, not labels inside the orb.
+- ReactBits Orb is useful as a reference for hue and active distortion ideas, but OGL was not added because this app already uses Three.js/R3F.
+- Eden should now customize one Overlay Pet identity without depending on a third-party primitive.
+- State meaning should come from activity, posture, glow, and motion intensity, not labels or route-specific appearances.
 
 Adopt:
 
 - dark negative space for the app surface
-- black-core spherical orb as the visual protagonist
-- one signature orb
-- route colors mapped into shader rim, lattice, and corona colors
-- motion states mapped into pulse, speed, density, fracture, and synthetic audio envelope
-- soft halo as support, not as a competing second orb
+- black-core spherical Overlay Pet as the visual protagonist
+- one signature Overlay Pet
+- one user-facing body for Eden, Jarvis, and Hybrid
+- activity states mapped into pulse, speed, density, fracture, and synthetic audio envelope
+- soft halo as support, not as a competing second Overlay Pet
 - imperfect living membrane rather than a perfectly mechanical circle
 - status as instrument, not label-heavy UI
 
@@ -98,7 +98,7 @@ For each selected reference:
 | `50334... (1)` basic state | dark core, glow shell, restrained halo | support direction only | filled pearl sphere |
 | `original-6433... (1)` basic reinforcement | black-core presence, particle lattice, diagonal wave, bright rim glints, outer corona | primary idle/base shader direction | overbuilt 3D torus stack |
 | `1d622...` speaking/texting | stronger pulse and faster modulation | responding-only motion profile | always-on activity dots |
-| SmoothUI Siri Orb | CSS dot mask, blur/contrast, smooth loop ideas | reference only; no direct dependency | using it as final orb |
+| SmoothUI Siri Orb | CSS dot mask, blur/contrast, smooth loop ideas | reference only; no direct dependency | using it as final Overlay Pet |
 | shadcn-style app surfaces | restrained controls, accessible primitives, dense panels | use local owned components for current Vite app | default library look |
 | voiceorb | Three.js/GLSL, state model, audio-reactive logic, Fresnel edge thinking | absorb technical logic into owned R3F shader | copying its visual palette |
 | ReactBits Orb | hue rotation, active distortion, background blending ideas | port concepts into Three.js/R3F only if needed | adding OGL as a second renderer |
