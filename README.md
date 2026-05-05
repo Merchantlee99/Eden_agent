@@ -92,6 +92,8 @@ Current design set:
 - [Eden/Jarvis Final Blueprint](docs/blueprints/current/Eden_Jarvis_Final_Blueprint.md)
 - [Postfix Review 2026-05-05](docs/blueprints/current/Eden_Jarvis_Postfix_Review_2026-05-05.md)
 - [Overlay Pet Design Readiness Review 2026-05-06](docs/blueprints/current/Overlay_Pet_Design_Readiness_Review_2026-05-06.md)
+- [Overlay Pet Style Guide](docs/blueprints/current/Overlay_Pet_Style_Guide.md)
+- [Overlay Pet Image Prompt Pack](docs/blueprints/current/Overlay_Pet_Image_Prompt_Pack.md)
 - [Cognitive Architecture v2](docs/blueprints/current/Eden_Jarvis_Cognitive_Architecture_v2.md)
 - [Product Architecture](docs/blueprints/current/Eden_Jarvis_Product_Architecture.md)
 - [Motion Bible](docs/blueprints/current/Motion-Bible.md)
